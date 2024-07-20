@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video Steganography</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="hero">
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+
+      <h1>Video Steganography</h1>
+      <div class="container">
+        <form
+          action="{{ url_for('encode_video_route') }}"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <h2>Encode Video</h2>
+          <input type="file" name="video" required />
+          <input type="text" name="message" placeholder="Message" required />
+          <button type="submit">Encode</button>
+        </form>
+
+        <form
+          action="{{ url_for('decode_video_route') }}"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <h2>Decode Video</h2>
+          <input type="file" name="video" required />
+          <button type="submit">Decode</button>
+        </form>
+
+        {% if decoded_message %}
+        <script>
+          alert("Decoded Message: {{ decoded_message }}");
+        </script>
+        {% endif %}
+      </div>
+    </div>
+  </body>
+</html>

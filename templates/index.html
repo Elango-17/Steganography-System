@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <title>Steganography and Encryption</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="hero">
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+
+      <h1>Steganography System</h1>
+      <div class="grid-container">
+        <div class="grid-item">
+          <a href="{{ url_for('image_steganography') }}">
+            <img
+              src="{{ url_for('static', filename='images/image.png') }}"
+              alt="Image Steganography"
+            />
+            <h2>Image Steganography</h2>
+          </a>
+        </div>
+        <div class="grid-item">
+          <a href="{{ url_for('audio_steganography_page') }}">
+            <img
+              src="{{ url_for('static', filename='images/audio.png') }}"
+              alt="Audio Steganography"
+            />
+            <h2>Audio Steganography</h2>
+          </a>
+        </div>
+        <div class="grid-item">
+          <a href="{{ url_for('video_steganography_page') }}">
+            <img
+              src="{{ url_for('static', filename='images/video.png') }}"
+              alt="Video Steganography"
+            />
+            <h2>Video Steganography</h2>
+          </a>
+        </div>
+        <div class="grid-item">
+          <a href="{{ url_for('encryption_page') }}">
+            <img
+              src="{{ url_for('static', filename='images/text.png') }}"
+              alt="Text Encryption"
+            />
+            <h2>Text Encryption</h2>
+          </a>
+        </div>
+      </div>
+      <footer>
+        <p>&copy; 2024 Steganography System.Developed by Elango.</p>
+      </footer>
+    </div>
+  </body>
+</html>

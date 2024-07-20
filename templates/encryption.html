@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Encryption</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <script>
+      function showDecryptedMessage() {
+        const decryptedMessage = "{{ decrypted_message|safe }}";
+        if (decryptedMessage) {
+          alert("Decrypted Message: " + decryptedMessage);
+        }
+      }
+    </script>
+  </head>
+  <div class="hero">
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+  <body onload="showDecryptedMessage()">
+    <h1>Text Encryption</h1>
+    <div class="container">
+      <form action="/encrypt" method="post">
+        <h2>Encrypt Message</h2>
+        <input type="text" name="message" placeholder="Message" required />
+        <button type="submit">Encrypt</button>
+      </form>
+      {% if encrypted_message %}
+      <p>Encrypted Message: {{ encrypted_message }}</p>
+      <p>Key: {{ key }}</p>
+      {% endif %}
+
+      <form action="/decrypt" method="post">
+        <h2>Decrypt Message</h2>
+        <input
+          type="text"
+          name="encrypted_message"
+          placeholder="Encrypted Message"
+          required
+        />
+        <input type="text" name="key" placeholder="Key" required />
+        <button type="submit">Decrypt</button>
+      </form>
+    </div>
+  </div>
+  </body>
+</html>

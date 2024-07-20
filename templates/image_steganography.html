@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Steganography</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="hero">
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+
+      <h1>Image Steganography</h1>
+      <div class="container">
+        <form
+          action="/encode_image"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <h2>Encode Image</h2>
+          <input type="file" name="image" required />
+          <input type="text" name="message" placeholder="Message" required />
+          <button type="submit">Encode</button>
+        </form>
+
+        <form
+          action="/decode_image"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <h2>Decode Image</h2>
+          <input type="file" name="image" required />
+          <button type="submit">Decode</button>
+        </form>
+
+        {% if decoded_message %}
+        <script>
+          alert("Decoded Message: {{ decoded_message }}");
+        </script>
+        {% endif %}
+      </div>
+    </div>
+  </body>
+</html>

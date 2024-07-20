@@ -1,0 +1,273 @@
+
+/* Background Effects */
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat:700");
+.hero {
+  background-color: #0040C1;
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  font-family: "Montserrat", sans-serif;
+}
+
+.hero__title {
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  z-index: 1;
+}
+
+.cube {
+  position: absolute;
+  top: 80vh;
+  left: 45vw;
+  width: 10px;
+  height: 10px;
+  border: solid 1px #003298;
+  transform-origin: top left;
+  transform: scale(0) rotate(0deg) translate(-50%, -50%);
+  -webkit-animation: cube 12s ease-in forwards infinite;
+          animation: cube 12s ease-in forwards infinite;
+}
+.cube:nth-child(2n) {
+  border-color: #0051f4;
+}
+.cube:nth-child(2) {
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+  left: 25vw;
+  top: 40vh;
+}
+.cube:nth-child(3) {
+  -webkit-animation-delay: 4s;
+          animation-delay: 4s;
+  left: 75vw;
+  top: 50vh;
+}
+.cube:nth-child(4) {
+  -webkit-animation-delay: 6s;
+          animation-delay: 6s;
+  left: 90vw;
+  top: 10vh;
+}
+.cube:nth-child(5) {
+  -webkit-animation-delay: 8s;
+          animation-delay: 8s;
+  left: 10vw;
+  top: 85vh;
+}
+.cube:nth-child(6) {
+  -webkit-animation-delay: 10s;
+          animation-delay: 10s;
+  left: 50vw;
+  top: 10vh;
+}
+
+@-webkit-keyframes cube {
+  from {
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    opacity: 1;
+  }
+  to {
+    transform: scale(20) rotate(960deg) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+
+@keyframes cube {
+  from {
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    opacity: 1;
+  }
+  to {
+    transform: scale(20) rotate(960deg) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+
+/* Body Styles */
+
+body {
+    font-family: poppins, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(115deg, #005ed1, #000000);
+}
+
+h1 {
+    /* background-color: #ffffff; */
+    color: #ffffff;
+    padding: 10px 0;
+    margin: 0;
+}
+h2{
+    color: #ffffff;
+}
+p{
+    color: #fff;
+}
+
+.container {
+    margin: 20px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+    max-width: 800px; /* Adjust the max-width as needed */
+    margin: 20px auto; /* Center the grid and add some top and bottom margin */
+}
+
+.grid-item {
+    /* background: linear-gradient(115deg, #fafafa, #faf7f7, #f0f0f0); */
+    border-radius: 8px;
+    padding: 15px;
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+    transition: transform 0.2s;
+}
+
+.grid-item:hover {
+    transform: scale(1.05);
+}
+
+.grid-item a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.grid-item h2 {
+    margin: 0;
+}
+
+.grid-item img {
+    width: 200px;
+    height: 200px;
+    /* border-bottom: 1px solid #ddd; */
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px auto;
+    padding: 20px;
+    max-width: 350px;
+    box-shadow: 0 4px 8px #022b7e;
+    background: transparent;
+    border-radius: 20px;
+    border: 2px solid #022b7e;
+    backdrop-filter: blur(25px);
+    overflow: hidden;
+}
+
+input[type="file"], input[type="text"], button {
+    width: 85%;
+    margin: 10px 0;
+    padding: 15px;
+    border: 1px solid #022b7e;
+    box-shadow: 0 2px 4px #022b7e;
+    color: #fff;
+    border-radius: 30px;
+    font-size: 16px;
+}
+
+input[type="file"], input[type="text"] {
+    background: transparent;
+    color: #fff;
+}
+
+button {
+    background-color: #022b7e;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    width: 85%;
+    border-radius: 30px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2a5298;
+    transform: translateY(-3px);
+}
+
+
+footer {
+    
+    color: #ffffff;
+    width: 100%;
+    padding: 5px 0; /* Reduce padding to make the footer smaller */
+    line-height: 1; /* Adjust line-height to reduce height */
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 15px; /* Set a fixed height if needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Ensure it stays on top */
+}
+
+footer p{
+    font-size: small;
+    color: #000000;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+
+    .grid-item img {
+        width: 150px;
+        height: 150px;
+    }
+
+    form {
+        padding: 15px;
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .grid-item img {
+        width: 100px;
+        height: 100px;
+    }
+
+    form {
+        padding: 55px;
+    }
+
+    input[type="file"], input[type="text"], button {
+        padding: 10px;
+        width: 100%;
+    }
+
+    button {
+        font-size: 14px;
+    }
+
+    footer {
+        font-size: 12px;
+    }
+}
